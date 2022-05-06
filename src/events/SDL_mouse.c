@@ -321,7 +321,8 @@ SDL_SendMouseMotion(SDL_Window * window, SDL_MouseID mouseID, int relative, int 
     if (window && !relative) {
         SDL_Mouse *mouse = SDL_GetMouse();
         if (!SDL_UpdateMouseFocus(window, x, y, GetButtonState(mouse), (mouseID == SDL_TOUCH_MOUSEID) ? SDL_FALSE : SDL_TRUE)) {
-            return 0;
+            // workaround drag to create issue.
+            //return 0;
         }
     }
 
